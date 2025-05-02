@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+  <script>
+    // Already has access
+    if (localStorage.getItem("accessGranted") === "true") {
+      window.location.href = "main.html";
+    } else {
+      // Prompt for password
+      const password = prompt("Enter the secret password 💖");
+
+      if (password === "yourSecret123") {
+        localStorage.setItem("accessGranted", "true");
+        window.location.href = "main.html";
+      } else {
+        document.write(`
+          <style>
+            body {
+              background-color: #ffe6e6;
+              font-family: 'Arial', sans-serif;
+              text-align: center;
+              padding: 50px;
+              color: #d63031;
+            }
+          </style>
+          <h1>Access Denied 🚫</h1>
+          <p>Wrong password! You're not authorized to view this page.</p>
+          <img src="https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif" width="200" />
+        `);
+      }
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
